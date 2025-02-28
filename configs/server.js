@@ -7,9 +7,11 @@ import morgan from 'morgan';
 import { dbConnection } from "./mongo.js";
 import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import authRoutes from "../src/auth/auth.routes.js";
+import userRoutes from "../src/user/user.routes.js"
 
 const routes = (app) => {
     app.use("/coperex/v1/auth", authRoutes); 
+    app.use("/coperex/v1/user", userRoutes)
 };
 
 const middlewares = (app) => {
