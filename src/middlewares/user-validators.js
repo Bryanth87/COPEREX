@@ -13,13 +13,11 @@ export const loginValidator = [
 
 export const editPasswordValidator = [
     validateJWT,
-    body("oldPassword").notEmpty().withMessage("The old password is required"),
-    body("newPassword").notEmpty().withMessage("The new password is required"),
+    body("oldPassword").notEmpty().withMessage("La anterior contraseña es requerida"),
+    body("newPassword").notEmpty().withMessage("La nueva contraseña es requerida"),
     body("newPassword").isStrongPassword({
         minLength: 8
-    }).withMessage(`Password must be at least 8 characters long, 
-        and contain at least one lowercase letter, one uppercase letter, 
-        one number and one special character`),
+    }).withMessage(`La contraseña al menos debe de contener 8 carácteres`),
     validateFields,
     handleErrors
 ]
